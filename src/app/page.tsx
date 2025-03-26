@@ -21,6 +21,8 @@ export default function GoogleDriveClone() {
     setCurrentFolder(folderId);
   };
 
+  // Memoize breadcrumbs calculation to prevent unnecessary recalculations on re-renders
+  // Only updates when currentFolder changes, improving performance for folder navigation
   const breadcrumbs = useMemo(() => {
     const breadcrumbs = [];
     let currentId: string | null = currentFolder;
